@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Photo Gallery</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+    <style>
+body {
+background-color: #FAFAB8;
+font-family: Cambria, Times New Roman, sans-serif;
+}
+h1, h2, h3 {
+margin: 0;
+}
+h3{
+clear: both;
+}
+a {
+text-decoration: none;
+color: black;
+}
+a:hover{
+color: #E1D744;
+}
+#container{
+background-color: #F5F5D5;
+width: 1200px;
+margin-left: auto;
+margin-right: auto;
+}
+#header {
+background-color: #FAFA83;
+text-align: center;
+width: 1200px;
+margin-left: auto;
+margin-right: auto;
+}
+#sidebar {
+/*background-color: #E9E9D9;*/
+background-color: #e0dfd1;
+width: 180px;
+float: left;
+padding: 10px;
+}
+.leftColumn{
+float: left;
+padding: 10px;
+width: 460px;
+}
+.rightColumn{
+float: right;
+padding: 10px;
+width: 460px;
+}
+
+#MainInfo{
+
+padding: 20px;
+width: 960px;
+float: right;
+}
+#footer{
+clear: both;
+padding: 10px;
+}
+#sidebar ul{
+list-style-type: none;
+padding: 0px;
+}
+.selected {
+font-bold;
+
+}
+
+
+    </style>
+</head>
+<body>
+<div id="header">
+    <h1>Drawing Website</h1>
+</div>
+<div id="container">
+    <div id="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+             <li><a class="selected" href="index.html">Home</a></li>
+            <br>
+            <li><a class="selected" href="PhotoGallery.html">Photo Gallery</a></li>
+            <br>
+            <li><a class="selected" href="Calendar.html">Calendar</a></li>
+            <br>
+            <li><a class="selected" href="ContactInfo.html">Contact Info</a></li>
+            <br>
+            
+            <br>
+        </ul>
+    </div>
+    <div id="MainInfo">
+        <h2>Photo Gallery</h2>
+        <p>
+            Here are images of my student's artwork ranging from pencil sketch to oil painting.
+        </p>
+        <h3>Oil Paintings</h3>
+        <div class = "leftColumn">
+            <p>
+                <img src = "images/DarrenWhiteHorseOilPainting.jpg" alt ="White Horse Oil Painting" width = "460">
+            </p>
+            <p>
+                <img src="images/DarrenBrownVasePinkBackgroundOilPainting.jpg" alt ="Vase Oil Painting" width = "460">
+            </p>
+
+        </div>
+        <div class = "rightColumn">
+            <p>
+                <img src="images/KevinYellowClothandVaseOilPainting.jpg" alt = "Blue White Vase Oil Painting" width = "460">
+            </p>
+
+        </div>
+        <h3>Watercolor Artwork</h3>
+        <div class="leftColumn">
+            <p><img src="images/BobcatWatercolor.JPG" alt="Bobcat Watercolor Painting" width="460"></p>
+            <p><img src="images/HawkWatercolor.JPG" alt="Hawk Watercolor Painting" width="460"></p>
+            <p><img src="images/PolarBearWatercolor .JPG" alt="Polar Bear Watercolor Painting" width="460"></p></div>
+        <div class="rightColumn">
+            <p><img src="images/BirdWatercolor.JPG" alt="Bird Watercolor Painting" width="460"></p>
+            <p><img src="images/LionWatercolor.JPG" alt="Lion Watercolor Painting" width="460"></p>
+            <p><img src="images/WolfWatercolor .JPG" alt="Wolf Watercolor Painting" width="460"></p>
+            <p><img src="images/BabyDeerWatercolor (2).JPG" alt="Baby Deer Watercolor Painting" width="460"></p>
+        </div>
+        <h3>Pencil Sketches</h3>
+        <div class="leftColumn">
+            <p><img src="images/FancyTeaKettleSketch.jpg" alt="Tea Kettle Pencil Sketch" width="460"></p>
+            <p><img src="images/CarCandleSketch.jpg" alt="Car Candle Pencil Sketch" width="460"></p>
+            </div>
+        <div class="rightColumn">
+            <p><img src="images/FishBowlVaseSketch.jpg" alt="Fish Bowl and Vase Pencil Sketch" width="460"></p>
+            <p><img src="images/VaseGlassBottleSketch.JPG" alt="Vase and Glass Bottle Pencil Sketch" width="460"></p>
+        </div>
+
+
+
+    </div>
+    <div id="footer">
+        <p>Copyright &copy; 2019 Darren Zhang & Kevin Zhang</p>
+    </div>
+</div>
+
+
+</body>
+</html>

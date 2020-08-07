@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script>
+       
+        window.onload = function(){
+        var d = new Date();
+        var month_name = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        var month = d.getMonth()+1;   //0-11
+        if (month>11){
+            month =0;
+        }
+        var year = d.getFullYear(); //2014
+        var first_date = month_name[month] + " " + 1 + " " + year; //this controls which month is displayed and some other stuff
+        //September 1 2014
+        var tmp = new Date(first_date).toDateString();
+        //Mon Sep 01 2014 ...
+        var first_day = tmp.substring(0, 3);    //Mon
+        var day_name = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+        var day_no = day_name.indexOf(first_day);   //1
+        var days = new Date(year, month+1, 0).getDate();    //30
+
+        //Tue Sep 30 2014 ...
+        var calendar = get_calendar(day_no, days);
+        document.getElementById("calendar-month-year").innerHTML = month_name[month]+" "+year;          //displays Month name and Year
+        document.getElementById("calendar-dates").appendChild(calendar);
+    }
+
+
+
+    function get_calendar(day_no, days){
+        var table = document.createElement('table');
+        var tr = document.createElement('tr');
+        
+
+
+
+        //row for the day letters
+        for(var c=0; c<=6; c++){
+            var td = document.createElement('td');
+            td.innerHTML = "SMTWTFS"[c];
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+
+        //create 2nd row
+        tr = document.createElement('tr');
+        var c;
+        for(c=0; c<=6; c++){
+            if(c == day_no){
+                break;
+            }
+            var td = document.createElement('td');
+            td.innerHTML = "";
+            tr.appendChild(td);
+        }
+
+        var count = 1;
+        for(; c<=6; c++){
+            var td = document.createElement('td');
+            td.innerHTML = count;
+            count++;
+            tr.appendChild(td);
+        }
+        table.appendChild(tr);
+
+        //rest of the date rows
+        for(var r=3; r<=7; r++){
+            tr = document.createElement('tr');
+            for(var c=0; c<=6; c++){
+                if(count > days){
+                    table.appendChild(tr);
+                    return table;
+                }
+                var td = document.createElement('td');
+                td.innerHTML = count;
+                count++;
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+        return table;
+    }
+
+
+    </script>
+    <style>
+body {
+background-color: #FAFAB8;
+font-family: Cambria, Times New Roman, sans-serif;
+}
+h1, h2, h3 {
+margin: 0;
+}
+a {
+text-decoration: none;
+color: black;
+}
+a:hover{
+color: #E1D744;
+}
+#calendar-container{
+        padding: 10px;
+        width: 350px;
+        height: 440px;
+        text-align: center;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        font-size: 36px;
+        font-family: Cambria;
+        background-color: #E7E059;
+
+}
+
+    #calendar-container>div{
+        padding: 0;
+        margin-bottom: 10px;
+
+    }
+
+    #calendar-month-year{
+        margin: 5px;
+        text-align: center;
+    }
+
+    #calendar-dates>table>tr>td{
+        padding: 5px;
+        font-size: 32px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 400;
+        height 420;
+    }
+
+.button {
+clear;
+}
+#container{
+background-color: #F5F5D5;
+width: 1200px;
+margin-left: auto;
+margin-right: auto;
+}
+#header {
+background-color: #FAFA83;
+text-align: center;
+width: 1200px;
+margin-left: auto;
+margin-right: auto;
+}
+#sidebar {
+/*background-color: #E9E9D9;*/
+background-color: #e0dfd1;
+width: 180px;
+float: left;
+padding: 10px;
+}
+
+#MainInfo{
+
+padding: 20px;
+width: 960px;
+float: right;
+}
+#footer{
+clear: both;
+padding: 10px;
+}
+#sidebar ul{
+list-style-type: none;
+padding: 0px;
+}
+.selected {
+font-bold;
+
+}
+#classdays {
+width: 180px;
+float: left;
+padding: 10px;
+}
+#calendar{
+width: 720px;
+padding: 20px;
+float: right;
+}
+.box{
+    float: left;
+    display: block;
+    width: 30px;
+    height: 50px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+/*#calendar-body a{
+    display: block;
+    width: 30px;
+    height:50px;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-align: center;
+    float: left;
+}*/
+
+/*#calendar-body a:hover{
+
+background-color: white;
+
+}
+.classavailable:hover{
+color: #43ff19;
+}
+.noclass:hover{
+color: red;
+
+}*/
+
+
+/*hr{
+    margin-top: 1;
+    margin-bottom: 0;
+    display: block;
+    border-width: 0.3px;
+}*/
+
+
+/*#calendar a:hover{
+
+}*/
+
+    </style>
+</head>
+<body>
+<div id="header">
+    <h1>Drawing Website</h1>
+</div>
+<div id="container">
+    <div id="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+              <li><a class="selected" href="index.html">Home</a></li>
+            <br>
+            <li><a class="selected" href="PhotoGallery.html">Photo Gallery</a></li>
+            <br>
+            <li><a class="selected" href="Calendar.html">Calendar</a></li>
+            <br>
+            <li><a class="selected" href="ContactInfo.html">Contact Info</a></li>
+            <br>
+           
+            <br>
+        </ul>
+    </div>
+    <div id="MainInfo">
+
+        <h2>Calendar</h2>
+        <div id="classdays">
+            <p>
+            <ul>
+                <li>
+                    Fridays<br>5:30 PM - 7:30 PM
+                </li>
+                <li>
+                    Saturday<br>9:00 AM - 12:00 PM
+                </li>
+                <li>
+                    Sunday<br> 9:00 AM - 12:30 PM
+                </li>
+            </ul>
+            </p>
+           <!--  <p>
+                <font color="red">NO CLASSES: 6/20 - 7/10</font><br>
+                Class resumes on 7/13
+            </p> -->
+        </div>
+        <div id="calendar">
+            <center>
+                <div class="button">
+                    <button><a href="PreviousMonth.html" alt="P">Previous Month</a></button>
+                    <button><a href="Calendar.html" alt="This">Current Month</a></button>
+                    <button><a href="NextMonth.html" alt="Next">Next Month</a></button>
+                </div>
+                <div id="calendar-container">
+                   <center>
+                    <p id = "h">
+                      <!--   <?php
+                        echo date("M") . " ". date("Y");
+                        ?> -->
+                    </p>
+                </center>
+                <!--    <hr>
+                    <div class= "box" >S</div>
+                    <div class= "box" >M</div>
+                    <div class= "box" >T</div>
+                    <div class= "box" >W</div>
+                    <div class= "box" >T</div>
+                    <div class= "box" >F</div>
+                    <div class= "box" >S</div>
+                    <hr> -->
+                    <!--  <a href="Javascript:void(0);" >M</a>
+                     <a href="Javascript:void(0);" >T</a>
+                     <a href="Javascript:void(0);" >W</a>
+                     <a href="Javascript:void(0);"  >T</a>
+                     <a href="Javascript:void(0);"  >F</a>
+                     <a href="Javascript:void(0);" >S</a> -->
+                    <div id="calendar-body">
+                    
+                 </div>
+                
+                    <div id="calendar-header">
+                        <span id="calendar-month-year"></span>
+                    </div>
+                    <div id="calendar-dates">
+                    </div>
+                </div>
+
+            </center>
+
+
+        </div>
+
+    </div>
+    <div id="footer">
+        <p>Copyright &copy; 2019 Darren Zhang & Kevin Zhang</p>
+    </div>
+</div>
+
+
+</body>
+</html>
