@@ -1,4 +1,4 @@
-# mockWebsite
+# Mock Website
 A website my brother and I made for our art teacher for fun.
 
 ![Website Home Page](websitePictures/WebsitePic1.jpg)
